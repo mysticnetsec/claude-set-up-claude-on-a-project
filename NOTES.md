@@ -23,3 +23,15 @@ What I left out:
 **`Bash(git push --force:*)` deny** — a force-push rewrites remote history and can permanently discard teammates' commits. Denying it outright means this can never happen by accident, even if Claude reasons its way into thinking it's necessary.
 
 **`Bash(git push:*)` ask** — a normal push is usually intentional but affects the shared remote, so a confirmation prompt is the right friction level.
+
+## Verified with /memory
+
+Ran `/memory` and confirmed that the contents of `CLAUDE.md` were present in memory — Claude had indexed the project instructions and they were visible in the memory output.
+
+## Verified with /permissions
+
+Ran `/permissions` and confirmed all five rules were present and correctly categorised:
+
+- Allow: `npm test`, `npm run lint`, `npm run dev`
+- Ask: `Bash(git push:*)`
+- Deny: `Read(./.env)`, `Bash(git push --force:*)`
